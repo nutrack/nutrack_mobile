@@ -1,7 +1,5 @@
 # Proyek Akhir Semester - PBP Gasal 2022/2023
 
-![main](https://github.com/nutrack/nutrack_mobile/actions/workflows/dpl.yml/badge.svg?branch=main)
-
 ### 👋 Kelompok F10 - Nutrack 👋
 1.  Farkhan Syawal Harahap (2106709125)
 2.  Muhammad Akmal Hakim (2106750383)
