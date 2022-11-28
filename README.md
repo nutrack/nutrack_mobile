@@ -14,6 +14,14 @@ Tidak jarang kita mengalami rasa bosan dalam menikmati suatu hidangan. Terkadang
 
 Mengingat rangkaian acara KTT G20 yang panjang dan padat, setiap partisipan perlu menjaga kondisi tubuh mereka untuk bisa mengikuti setiap rangkaian acaranya. KTT G20 mengundang beberapa negara lain yang mungkin masih kurang familiar dengan gaya jenis makanan yang bahan pangannya tersedia di Indonesia. Dengan adanya aplikasi ini, diharapkan dapat membantu partisipan dalam menjaga kesehatan tubuh mereka, serta membantu partisipan dalam menentukan menu yang dapat memenuhi gizi mereka yang tersedia di Indonesia.
 
+## 🌍 Alur Pengintegrasian dengan Web Services 🌍
+Langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan server web.
+
+1. Implementasikan sebuah wrapper class dengan menggunakan library http dan map untuk mendukung penggunaan cookie-based authentication pada aplikasi.
+2. Implementasikan REST API pada Django (views.py) yang sudah dibuat sebelumnya dengan menggunakan JsonResponse atau Django JSON Serializer.
+3. Pengintegrasian dilakukan dengan mengimplementasikan desain front-end untuk aplikasi berdasarkan desain web.
+4. Lakukan integrasi antara front-end dengan back-end dengan menggunakan konsep asynchronous HTTP.
+
 ## 🖥️ Modul Aplikasi 🖥️
 1. Autentikasi pengguna (apakah pengguna yang login merupakan admin atau user)
     - Dikerjakan oleh: Sasha Nabila Fortuna
