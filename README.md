@@ -1,6 +1,5 @@
 # Proyek Akhir Semester - PBP Gasal 2022/2023
 
-[![Build status](https://build.appcenter.ms/v0.1/apps/9f63f4a5-1178-41c0-bf8f-61dc714d630c/branches/staging/badge)](https://appcenter.ms)
 
 ### 👋 Kelompok F10 - Nutrack 👋
 1.  Farkhan Syawal Harahap (2106709125)
