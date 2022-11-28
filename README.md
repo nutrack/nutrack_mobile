@@ -10,7 +10,7 @@
 5.  Shayna Putri Fitria (2106703084)
 
 ## 🔗 Link APK 🔗
-Silakan untuh file APK di bagian [releases](https://github.com/nutrack/nutrack_mobile/releases)
+Silakan unduh file APK di bagian [releases](https://github.com/nutrack/nutrack_mobile/releases)
 
 ## 🔙 Latar Belakang 🔙
 Sejak pandemi COVID-19, banyak orang yang melakukan aktivitas kebanyakan di rumah. Sehingga, ketika berurusan dengan konsumsi sehari-hari, orang-orang akan lebih berkutat di dapur. Dengan begitu, setiap orang memiliki kesempatan untuk meningkatkan mutu gizi karena aktivitasnya lebih banyak dilakukan di dapur ketimbang pergi ke restoran. Hal ini telah menjadi suatu kebiasaan bagi masyarakat untuk menerapkan pola makan yang lebih sehat. Pola makan yang sehat juga dinilai penting demi tetap menjaga imunitas tubuh. Dengan begitu, pembuatan aplikasi untuk tracking gizi yang sudah dikonsumsi pada hari itu cukup penting bagi masyarakat kita saat ini. 
