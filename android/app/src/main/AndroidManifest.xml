@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nutrack_mobile">
+    package="com.nutrack.nutrack_mobile">
    <application
         android:label="nutrack_mobile"
         android:name="${applicationName}"
