@@ -40,6 +40,12 @@ dependencies:
   pbp_django_auth: ^0.1.2
   provider: ^6.0.4
   google_fonts: ^3.0.1
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+  image_path: "android/app/src/main/res/mipmap-xxxhdpi/nutrack_logo.png"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
