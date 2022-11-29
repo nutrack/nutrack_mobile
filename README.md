@@ -1,6 +1,9 @@
 # Proyek Akhir Semester - PBP Gasal 2022/2023
 
 [![Build status](https://build.appcenter.ms/v0.1/apps/9f63f4a5-1178-41c0-bf8f-61dc714d630c/branches/main/badge)](https://appcenter.ms)
+[![Develop](https://github.com/nutrack/nutrack_mobile/actions/workflows/staging.yml/badge.svg)](https://github.com/nutrack/nutrack_mobile/actions/workflows/develop.yml)
+[![Pre-Release](https://github.com/nutrack/nutrack_mobile/actions/workflows/pre-release.yml/badge.svg)](https://github.com/nutrack/nutrack_mobile/actions/workflows/pre-release.yml)
+[![Release](https://github.com/nutrack/nutrack_mobile/actions/workflows/release.yml/badge.svg)](https://github.com/nutrack/nutrack_mobile/actions/workflows/release.yml)
 
 ### 👋 Kelompok F10 - Nutrack 👋
 1.  Farkhan Syawal Harahap (2106709125)
@@ -9,12 +12,23 @@
 4.  Sasha Nabila Fortuna (2106632226)
 5.  Shayna Putri Fitria (2106703084)
 
+## 🔗 Link APK 🔗
+Silakan unduh file APK di bagian [releases](https://github.com/nutrack/nutrack_mobile/releases)
+
 ## 🔙 Latar Belakang 🔙
 Sejak pandemi COVID-19, banyak orang yang melakukan aktivitas kebanyakan di rumah. Sehingga, ketika berurusan dengan konsumsi sehari-hari, orang-orang akan lebih berkutat di dapur. Dengan begitu, setiap orang memiliki kesempatan untuk meningkatkan mutu gizi karena aktivitasnya lebih banyak dilakukan di dapur ketimbang pergi ke restoran. Hal ini telah menjadi suatu kebiasaan bagi masyarakat untuk menerapkan pola makan yang lebih sehat. Pola makan yang sehat juga dinilai penting demi tetap menjaga imunitas tubuh. Dengan begitu, pembuatan aplikasi untuk tracking gizi yang sudah dikonsumsi pada hari itu cukup penting bagi masyarakat kita saat ini. 
 
 Tidak jarang kita mengalami rasa bosan dalam menikmati suatu hidangan. Terkadang ada orang yang senang makanan yang bervariasi sehingga mereka bisa berganti-ganti hidangan setiap harinya. Selera makan juga tidak dipengaruhi oleh faktor biologis saja, melainkan juga suasana lingkungan dan suasana hati. Oleh karena itu, melalui aplikasi ini diharapkan masyarakat bisa menemukan ide-ide menu sehat yang dapat digunakan untuk memenuhi kebutuhan gizi harian dan sebagai salah satu varian agar tidak suntuk dengan makanan yang sudah-sudah.
 
 Mengingat rangkaian acara KTT G20 yang panjang dan padat, setiap partisipan perlu menjaga kondisi tubuh mereka untuk bisa mengikuti setiap rangkaian acaranya. KTT G20 mengundang beberapa negara lain yang mungkin masih kurang familiar dengan gaya jenis makanan yang bahan pangannya tersedia di Indonesia. Dengan adanya aplikasi ini, diharapkan dapat membantu partisipan dalam menjaga kesehatan tubuh mereka, serta membantu partisipan dalam menentukan menu yang dapat memenuhi gizi mereka yang tersedia di Indonesia.
+
+## 🌍 Alur Pengintegrasian dengan Web Services 🌍
+Langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan server web.
+
+1. Implementasikan sebuah wrapper class dengan menggunakan library http dan map untuk mendukung penggunaan cookie-based authentication pada aplikasi.
+2. Implementasikan REST API pada Django (views.py) yang sudah dibuat sebelumnya dengan menggunakan JsonResponse atau Django JSON Serializer.
+3. Pengintegrasian dilakukan dengan mengimplementasikan desain front-end untuk aplikasi berdasarkan desain web.
+4. Lakukan integrasi antara front-end dengan back-end dengan menggunakan konsep asynchronous HTTP.
 
 ## 🖥️ Modul Aplikasi 🖥️
 1. Autentikasi pengguna (apakah pengguna yang login merupakan admin atau user)
