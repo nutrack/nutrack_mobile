@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.0.4
   google_fonts: ^3.0.1
   flutter_launcher_icons: ^0.11.0
+  flutter_speed_dial: ^6.2.0
 
 flutter_icons:
   image_path: "android/app/src/main/res/mipmap-xxxhdpi/nutrack_logo.png"
@@ -68,6 +69,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/ic_launcher.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
