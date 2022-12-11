@@ -3,6 +3,7 @@ library food_rec;
 import 'dart:convert' as convert;
 import 'dart:io';
 import 'package:food_rec/model/food_rec_model.dart';
+import 'package:food_rec/screen/add_food.dart';
 import 'package:nutrack_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -14,6 +15,7 @@ import 'package:food_rec/util/fetch.dart';
 // import cupertino icon
 import 'package:flutter/cupertino.dart';
 import 'package:food_rec/screen/food_detail.dart';
+import 'package:food_rec/screen/add_food.dart';
 
 class FoodRec extends StatefulWidget {
   static const ROUTE_NAME = "/food_rec";
@@ -21,6 +23,11 @@ class FoodRec extends StatefulWidget {
 
   @override
   State<FoodRec> createState() => _FoodRecState();
+}
+
+class LoggedIn {
+  static Map<String, String> user_data = {};
+  static var userLoggedIn = {};
 }
 
 class _FoodRecState extends State<FoodRec> {
@@ -42,6 +49,11 @@ class _FoodRecState extends State<FoodRec> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             // Add your onPressed code here!
+            // go to add food page
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AddFoodPage()),
+            );
           },
           child: const Icon(Icons.add),
           backgroundColor: iconColor,
@@ -111,7 +123,7 @@ class _FoodRecState extends State<FoodRec> {
                                 padding: const EdgeInsets.all(20.0),
                                 decoration: BoxDecoration(
                                     color: cardColor,
-                                    borderRadius: BorderRadius.circular(24.0),
+                                    borderRadius: BorderRadius.circular(16.0),
                                     boxShadow: const [
                                       BoxShadow(
                                           color: Color.fromARGB(40, 0, 0, 0),
@@ -133,7 +145,7 @@ class _FoodRecState extends State<FoodRec> {
                                             true)
                                           const Icon(
                                             // add icon for food
-                                            Icons.local_dining,
+                                            Icons.fastfood,
                                             color: iconColor,
                                             size: 32,
                                           )
@@ -205,7 +217,7 @@ class _FoodRecState extends State<FoodRec> {
                                           onPrimary: Colors.white,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(12.0),
+                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ),

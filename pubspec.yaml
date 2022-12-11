@@ -44,6 +44,8 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_launcher_icons: ^0.11.0
   flutter_speed_dial: ^6.2.0
+  shared_preferences: ^2.0.15
+  flutter_dotenv: ^5.0.2
 
 flutter_icons:
   image_path: "android/app/src/main/res/mipmap-xxxhdpi/nutrack_logo.png"
