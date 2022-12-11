@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import '/model/comment_model.dart';
+import '../model/comment_model.dart';
 import 'dart:convert';
 import '../model/article_model.dart';
 
