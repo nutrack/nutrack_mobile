@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: const Text('Log In'),
                       onPressed: () async {
                         final response = await request
-                            .login("https://nu-track.up.railway.app/login_flutter", {
+                            .login("https://nu-track.up.railway.app/login-flutter", {
                           'username': username,
                           'password': password1,
                         });
