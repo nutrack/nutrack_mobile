@@ -3,7 +3,9 @@ import 'package:nutrack_mobile/data/drawer_items.dart';
 import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:provider/provider.dart';
-import 'package:nutrack_mobile/provider/nav_provider.dart';
+import 'package:nutrack_mobile/provider/net_service.dart';
+
+import '../screens/homepage.dart';
 
 class NutrackDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -13,20 +15,20 @@ class NutrackDrawer extends StatelessWidget {
     final safeArea =
         EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top);
 
-    final provider = Provider.of<NavigationProvider>(context);
+    final provider = Provider.of<NetworkService>(context);
     final isCollapsed = provider.isCollapsed;
 
     return Container(
       width: isCollapsed ? MediaQuery.of(context).size.width * 0.2 : null,
       child: Drawer(
         child: Container(
-          color: Color(0xFF1a2f45),
+          color: Colors.white70,
           child: Column(
             children: [
               Container(
                 padding: EdgeInsets.symmetric(vertical: 24).add(safeArea),
                 width: double.infinity,
-                color: Colors.white12,
+                color: Colors.orange,
                 child: buildHeader(isCollapsed),
               ),
               const SizedBox(height: 24),
@@ -96,7 +98,7 @@ class NutrackDrawer extends StatelessWidget {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    final color = Colors.white;
+    final color = Colors.black;
     final leading = Icon(icon, color: color);
 
     return Material(
@@ -130,11 +132,11 @@ class NutrackDrawer extends StatelessWidget {
           child: Container(
             width: width,
             height: size,
-            child: Icon(icon, color: Colors.white),
+            child: Icon(icon, color: Colors.black),
           ),
           onTap: () {
             final provider =
-                Provider.of<NavigationProvider>(context, listen: false);
+                Provider.of<NetworkService>(context, listen: false);
 
             provider.toggleIsCollapsed();
           },
