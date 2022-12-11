@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: const Text('Log In'),
                       onPressed: () async {
                         final response = await request
-                            .login("https://nu-track.up.railway.app/login-flutter", {
+                            .login("https://nu-track.up.railway.app/login-flutter/", {
                           'username': username,
                           'password': password1,
                         });
@@ -162,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                           ));
 
                           Navigator.pushReplacementNamed(context,
-                              RegisterPage.ROUTE_NAME);
+                              MyHomePage.ROUTE_NAME);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                             content: Text("An error occured, please try again."),
