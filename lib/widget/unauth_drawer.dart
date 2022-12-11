@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nutrack_mobile/data/drawer_items.dart';
+import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
 import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
+import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
 
-import '../screens/homepage.dart';
-
-import '../calorycalc/calorycalc.dart';
-
-class NutrackDrawer extends StatelessWidget {
+class NutrackUnAuthDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
+
+  NutrackUnAuthDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -80,15 +79,12 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(MyHomePage());
         break;
       case 1:
-        navigateTo(caloryAdd());
+        navigateTo(MyHomePage());
         break;
       case 2:
         navigateTo(MyHomePage());
         break;
       case 3:
-        navigateTo(MyHomePage());
-        break;
-      case 4:
         navigateTo(MyHomePage());
         break;
     }
