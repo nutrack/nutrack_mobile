@@ -62,7 +62,7 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
       appBar: AppBar(
         title: const Text('Write your Article'),
       ),
-      drawer: NutrackDrawer(),
+      drawer: const NutrackDrawer(),
       body: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -84,7 +84,7 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Judul Artikel",
+                      labelText: "Judul",
                       labelStyle: const TextStyle(color: Color(0xFF0a4d3c)),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
@@ -116,7 +116,7 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
                     },
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Judul tidak boleh kosong!';
+                        return 'Judul tidak boleh kosong! :(';
                       }
                       return null;
                     },
@@ -168,7 +168,7 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Penulis tidak boleh kosong!';
+                        return 'Penulis tidak boleh kosong! :(';
                       }
                       return null;
                     },
@@ -220,7 +220,7 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Artikel tidak boleh kosong!';
+                        return 'Artikel tidak boleh kosong! :(';
                       }
                       return null;
                     },

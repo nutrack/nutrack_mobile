@@ -2,6 +2,7 @@ import 'package:nutrack_mobile/article/fetch/comment_get.dart';
 import 'package:nutrack_mobile/article/screens/article_detail.dart';
 import 'package:nutrack_mobile/article/article.dart';
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 
 class UnauthArticleItemPage extends StatelessWidget {
   static const routeName = '/articledetail-unauth';
@@ -31,22 +32,7 @@ class UnauthArticleItemPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(''),
         ),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              ListTile(
-                title: const Text('Artikel'),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MyArticlePage()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: const NutrackUnAuthDrawer(),
         body: ListView(
           padding: const EdgeInsets.all(20.0),
           shrinkWrap: true,

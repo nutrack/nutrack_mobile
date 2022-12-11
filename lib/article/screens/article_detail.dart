@@ -1,6 +1,5 @@
 // import 'package:nutrack_mobile/article/model/comment_model.dart';
 // import 'package:nutrack_mobile/article/fetch/comment_get.dart';
-import 'package:nutrack_mobile/article/fetch/comment_get.dart';
 import 'package:nutrack_mobile/article/screens/comment_form.dart';
 import 'package:nutrack_mobile/article/article.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +41,7 @@ class ArticleItemPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(''),
         ),
-        drawer: NutrackDrawer(),
+        drawer: const NutrackDrawer(),
         body: ListView(
           padding: const EdgeInsets.all(20.0),
           shrinkWrap: true,

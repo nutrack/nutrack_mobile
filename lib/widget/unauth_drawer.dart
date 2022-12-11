@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nutrack_mobile/article/article.dart';
-import 'package:nutrack_mobile/data/drawer_items.dart';
-import 'package:nutrack_mobile/main.dart';
+import 'package:nutrack_mobile/article/article_unauth.dart';
+import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
+import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
 
-import '../screens/homepage.dart';
-
-class NutrackDrawer extends StatelessWidget {
+class NutrackUnAuthDrawer extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
 
-  const NutrackDrawer({super.key});
+  const NutrackUnAuthDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,12 +82,9 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 2:
-        navigateTo(const MyHomePage());
+        navigateTo(const MyUnauthArticlePage());
         break;
       case 3:
-        navigateTo(const MyArticlePage());
-        break;
-      case 4:
         navigateTo(const MyHomePage());
         break;
     }

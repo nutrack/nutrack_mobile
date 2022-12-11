@@ -189,7 +189,7 @@ class _CommentFormPageState extends State<CommentFormPage> {
                   // Validator sebagai validasi form
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Comment tidak boleh kosong!';
+                      return 'Comment nya apa? :(';
                     }
                     return null;
                   },

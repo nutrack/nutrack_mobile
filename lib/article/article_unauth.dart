@@ -1,6 +1,7 @@
 import 'package:nutrack_mobile/article/screens/article_detail.dart';
 import 'package:nutrack_mobile/article/screens/article_detail_unauth.dart';
 import 'package:nutrack_mobile/article/fetch/article_get.dart';
+import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 
 import 'package:flutter/material.dart';
 
@@ -29,22 +30,7 @@ class _MyUnauthArticlePageState extends State<MyUnauthArticlePage> {
       appBar: AppBar(
         title: const Text('Article'),
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            ListTile(
-              title: const Text('Artikel'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MyUnauthArticlePage()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const NutrackUnAuthDrawer(),
       body: FutureBuilder(
         future: fetchArticle(),
         builder: (context, AsyncSnapshot snapshot) {
@@ -55,7 +41,7 @@ class _MyUnauthArticlePageState extends State<MyUnauthArticlePage> {
               return Column(
                 children: const [
                   Text(
-                    "Belum Ada Artikel",
+                    "Belum Ada Artikel :(",
                     style: TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
                   ),

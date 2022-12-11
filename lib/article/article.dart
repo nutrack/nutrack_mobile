@@ -32,7 +32,7 @@ class _MyArticlePageState extends State<MyArticlePage> {
       appBar: AppBar(
         title: const Text('Article'),
       ),
-      drawer: NutrackDrawer(),
+      drawer: const NutrackDrawer(),
       body: FutureBuilder(
         future: fetchArticle(),
         builder: (context, AsyncSnapshot snapshot) {
@@ -43,7 +43,7 @@ class _MyArticlePageState extends State<MyArticlePage> {
               return Column(
                 children: const [
                   Text(
-                    "Belum Ada Artikel",
+                    "Belum Ada Artikel :(",
                     style: TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
                   ),
