@@ -4,6 +4,7 @@ import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/nav_provider.dart';
+import 'package:food_rec/screen/food_rec.dart';
 
 class NutrackDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -79,7 +80,7 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(MyHomePage());
         break;
       case 2:
-        navigateTo(MyHomePage());
+        navigateTo(FoodRec());
         break;
       case 3:
         navigateTo(MyHomePage());
