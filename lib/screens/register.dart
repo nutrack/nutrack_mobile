@@ -10,7 +10,7 @@ import 'package:nutrack_mobile/screens/login.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/register';
+  static const routeName = '/register';
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -27,10 +27,10 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<NetworkService>();
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: NutrackUnAuthDrawer(),
+      drawer: const NutrackUnAuthDrawer(),
       appBar: AppBar(
         title: const Text("Register"),
         backgroundColor: Colors.red,
@@ -50,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Container(
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Text(
+                  child: const Text(
                     "Registration Form",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
               ),
@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(90.0),
                         borderSide: const BorderSide(
@@ -98,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(90.0),
                         borderSide: const BorderSide(
@@ -139,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.password),
+                      prefixIcon: const Icon(Icons.password),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(90.0),
                         borderSide: const BorderSide(
@@ -180,7 +180,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.password),
+                      prefixIcon: const Icon(Icons.password),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(90.0),
                         borderSide: const BorderSide(
@@ -243,7 +243,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               "Account has been successfully registered!"),
                         ));
                         Navigator.pushReplacementNamed(
-                            context, LoginPage.ROUTE_NAME);
+                            context, LoginPage.routeName);
                       } else {
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
@@ -256,7 +256,7 @@ class _RegisterPageState extends State<RegisterPage> {
               )),
               TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginPage.ROUTE_NAME);
+                    Navigator.pushNamed(context, LoginPage.routeName);
                   },
                   child: Text(
                     'Log In ASAP!',

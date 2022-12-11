@@ -1,10 +1,10 @@
-import '/fetch/comment_get.dart';
-import '/model/comment_model.dart';
+import '../fetch/comment_get.dart';
+import '../model/comment_model.dart';
 
 import 'comment_form.dart';
 // import 'package:nutrack_mobile/main.dart';
 import 'article_form.dart';
-import 'package:article/article.dart';
+import '../article.dart';
 import 'package:flutter/material.dart';
 
 class CommentData {
@@ -21,7 +21,7 @@ class CommentData {
 //   State<CommentFormPage> createState() => ArticleItemPage(judul: judul, penulis: penulis, artikel: artikel, comment: comment)
 // }
 
-class ArticleItemPage extends StatelessWidget {
+class ArticleItemPage extends StatelessWidget { //ignore: must_be_immutable
   ArticleItemPage(
       {super.key,
       required this.judul,
@@ -179,7 +179,9 @@ class ArticleItemPage extends StatelessWidget {
                                                   const EdgeInsets.fromLTRB(
                                                       0, 5, 0, 5),
                                               child: Text(
-                                                snapshot.data![id].fields.username.toString(),
+                                                snapshot
+                                                    .data![id].fields.username
+                                                    .toString(),
                                                 textAlign: TextAlign.left,
                                                 style: const TextStyle(
                                                     fontSize: 16,
@@ -201,7 +203,9 @@ class ArticleItemPage extends StatelessWidget {
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 0, 0, 5),
                                           child: Text(
-                                            snapshot.data![id].fields.comment_post.toString(),
+                                            snapshot
+                                                .data![id].fields.comment_post
+                                                .toString(),
                                             textAlign: TextAlign.left,
                                           ),
                                         )

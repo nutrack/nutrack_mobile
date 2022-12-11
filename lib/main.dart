@@ -8,12 +8,12 @@ import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:nutrack_mobile/screens/register.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  static final String title = 'Nutrack';
+  static const String title = 'Nutrack';
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +29,14 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.deepOrange,
           ),
-          home: MyHomePage(),
+          home: const MyHomePage(),
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
-              case MyHomePage.ROUTE_NAME :
+              case MyHomePage.routeName :
                 return MaterialPageRoute(builder: (_) => const MyHomePage());
-              case LoginPage.ROUTE_NAME :
+              case LoginPage.routeName :
                 return MaterialPageRoute(builder: (_) => const LoginPage());
-              case RegisterPage.ROUTE_NAME :
+              case RegisterPage.routeName :
                 return MaterialPageRoute(builder: (_) => const RegisterPage());
               default:
                 return MaterialPageRoute(

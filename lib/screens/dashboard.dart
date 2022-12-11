@@ -8,7 +8,7 @@ import 'package:nutrack_mobile/screens/login.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/home';
+  static const routeName = '/home';
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -16,14 +16,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
     Widget build(BuildContext context) => Scaffold(
-        drawer: NutrackUnAuthDrawer(),
+        drawer: const NutrackUnAuthDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Text(MyApp.title),
+          title: const Text(MyApp.title),
           centerTitle: true,
           actions: [
             IconButton(
-              icon: Icon(Icons.login), 
+              icon: const Icon(Icons.login), 
               onPressed: () {
                 Navigator.push(
                   context,
