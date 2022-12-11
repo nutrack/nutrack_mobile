@@ -21,7 +21,7 @@ class CommentData {
 //   State<CommentFormPage> createState() => ArticleItemPage(judul: judul, penulis: penulis, artikel: artikel, comment: comment)
 // }
 
-class ArticleItemPage extends StatelessWidget {
+class ArticleItemPage extends StatelessWidget { //ignore: must_be_immutable
   ArticleItemPage(
       {super.key,
       required this.judul,

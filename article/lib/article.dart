@@ -1,7 +1,7 @@
 import 'fetch/article_get.dart';
-import 'page/article_detail.dart';
+import 'screens/article_detail.dart';
 // import 'package:nutrack_mobile/main.dart';
-import 'page/article_form.dart';
+import 'screens/article_form.dart';
 import 'package:flutter/material.dart';
 
 class MyArticlePage extends StatefulWidget {

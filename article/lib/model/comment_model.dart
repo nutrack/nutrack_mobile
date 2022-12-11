@@ -46,15 +46,15 @@ class Fields {
     String artid;
 
     factory Fields.fromJson(Map<String, dynamic> json) => Fields(
-        art: json["art"] == null ? null : json["art"],
-        user: json["user"] == null ? null : json["user"],
+        art: json["art"],
+        user: json["user"],
         commentPost: json["comment_post"],
         artid: json["artid"],
     );
 
     Map<String, dynamic> toJson() => {
-        "art": art == null ? null : art,
-        "user": user == null ? null : user,
+        "art": art,
+        "user": user,
         "comment_post": commentPost,
         "artid": artid,
     };
