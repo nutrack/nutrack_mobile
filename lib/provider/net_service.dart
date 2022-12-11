@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
-class NetworkService {
+class NetworkService extends ChangeNotifier{
   Map<String, String> headers = {};
   Map<String, String> cookies = {};
   final http.Client _client = http.Client();
@@ -14,6 +14,16 @@ class NetworkService {
   bool loggedIn = false;
   bool initialized = false;
   String username = "";
+
+  bool _isCollapsed = false;
+
+  bool get isCollapsed => _isCollapsed;
+
+  void toggleIsCollapsed() async{
+    _isCollapsed = !isCollapsed;
+
+    notifyListeners();
+  }
 
   Future init(BuildContext context) async {
     if (!initialized) {
@@ -154,4 +164,5 @@ class NetworkService {
 
     return json.decode(response.body);
   }
+  
 }
