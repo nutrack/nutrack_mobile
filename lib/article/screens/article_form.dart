@@ -1,6 +1,7 @@
-// import 'package:nutrack_mobile/main.dart';
-import 'package:article/article.dart';
+import 'package:nutrack_mobile/article/article.dart';
+
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/widget/drawer_menu.dart';
 
 import 'dart:convert' as convert;
 
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 List<ArticleData> article = [];
 
 class MyArticleFormPage extends StatefulWidget {
+  static const routeName = '/articleform';
   const MyArticleFormPage({super.key});
 
   @override
@@ -54,40 +56,13 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    final request = context.watch<CookieRequest>();
+    final request = context.watch<CookieRequest>(); // TODO ini belom diurus
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Write your Article'),
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            // ListTile(
-            //   title: const Text('Home'),
-            //   onTap: () {
-            //     Navigator.pushReplacement(
-            //       context,
-            //       MaterialPageRoute(
-            //           builder: (context) => const MyHomePage(
-            //                 title: '',
-            //               )),
-            //     );
-            //   },
-            // ),
-            ListTile(
-              title: const Text('Artikel'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MyArticlePage()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: NutrackDrawer(),
       body: Form(
           key: _formKey,
           child: SingleChildScrollView(

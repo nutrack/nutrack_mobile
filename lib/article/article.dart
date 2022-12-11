@@ -1,10 +1,14 @@
-import '/fetch/article_get.dart';
-import '/page/article_detail.dart';
-// import 'package:nutrack_mobile/main.dart';
-import '/page/article_form.dart';
+import 'package:nutrack_mobile/article/fetch/article_get.dart';
+import 'package:nutrack_mobile/article/screens/article_detail.dart';
+import 'package:nutrack_mobile/article/screens/article_form.dart';
+
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/widget/drawer_menu.dart';
+
+List<CommentData> comment = [];
 
 class MyArticlePage extends StatefulWidget {
+  static const routeName = '/article';
   const MyArticlePage({super.key});
 
   @override
@@ -28,34 +32,7 @@ class _MyArticlePageState extends State<MyArticlePage> {
       appBar: AppBar(
         title: const Text('Article'),
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            // ListTile(
-            //   title: const Text('Home'),
-            //   onTap: () {
-            //     Navigator.pushReplacement(
-            //       context,
-            //       MaterialPageRoute(
-            //           builder: (context) => const MyHomePage(
-            //                 title: '',
-            //               )),
-            //     );
-            //   },
-            // ),
-            ListTile(
-              title: const Text('Artikel'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MyArticlePage()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: NutrackDrawer(),
       body: FutureBuilder(
         future: fetchArticle(),
         builder: (context, AsyncSnapshot snapshot) {
@@ -101,7 +78,8 @@ class _MyArticlePageState extends State<MyArticlePage> {
                                     padding:
                                         const EdgeInsets.fromLTRB(10, 5, 0, 10),
                                     child: Text(
-                                      snapshot.data![id].fields.author.toString(),
+                                      snapshot.data![id].fields.author
+                                          .toString(),
                                       textAlign: TextAlign.left,
                                       style: const TextStyle(
                                           fontSize: 14,
@@ -126,7 +104,8 @@ class _MyArticlePageState extends State<MyArticlePage> {
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                                 child: Text(
-                                  snapshot.data![id].fields.articlePost.toString(),
+                                  snapshot.data![id].fields.articlePost
+                                      .toString(),
                                   maxLines: 2,
                                   textAlign: TextAlign.left,
                                   overflow: TextOverflow.ellipsis,
@@ -138,9 +117,12 @@ class _MyArticlePageState extends State<MyArticlePage> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => ArticleItemPage(
-                                  judul: snapshot.data![id].fields.title.toString(),
-                                  penulis: snapshot.data![id].fields.author.toString(),
-                                  artikel: snapshot.data![id].fields.articlePost.toString(),
+                                  judul: snapshot.data![id].fields.title
+                                      .toString(),
+                                  penulis: snapshot.data![id].fields.author
+                                      .toString(),
+                                  artikel: snapshot.data![id].fields.articlePost
+                                      .toString(),
                                   index: snapshot.data![id].pk,
                                 )));
                       },
