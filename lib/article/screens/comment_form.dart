@@ -38,33 +38,19 @@ class _CommentFormPageState extends State<CommentFormPage> {
   final String penulis;
   final String artikel;
   
-
   String? commentText;
   String? username;
 
-  // void addCommentToJson(request) async {
-  //   var data = convert.jsonEncode(
-  //       <String, dynamic>{'comment_post': commentText, 'art_id': index});
+  List<CommentData>? commentDetail;
 
-  //   final response = await request.postJson(
-  //       'https://nu-track.up.railway.app/article/add-comment-flutter/', data);
-
-  //   if (response['status'] == 'success') {
-  //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-  //       content: Text("Article has been added!"),
-  //     ));
-  //     Navigator.of(context)
-  //         .push(MaterialPageRoute(builder: (context) => const MyArticlePage()));
-  //   } else {
-  //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-  //       content: Text("An error occured, please try again."),
-  //     ));
-  //   }
-  // }
+  void getComment() {
+    commentDetail = comment.where((i) => i.pk == index).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final request = context.watch<CookieRequest>();
+    // final request = context.watch<CookieRequest>();
+    getComment();
 
     return Scaffold(
       appBar: AppBar(
@@ -194,6 +180,77 @@ class _CommentFormPageState extends State<CommentFormPage> {
                     return null;
                   },
                 ),
+              ),
+
+              // --- Comment Section --- //
+              Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Text(
+                      'COMMENTS',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xFF0a4d3c),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+
+              Column(
+                children: [
+                  for (var com in commentDetail!)
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: ListTile(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              side: const BorderSide(
+                                  width: 0.5, color: Colors.black12)),
+                          title: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            0, 5, 0, 5),
+                                        child: Text(
+                                          com.username
+                                              .toString(),
+                                          textAlign: TextAlign.left,
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xFF0a4d3c)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )),
+                          subtitle: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                    child: Text(
+                                      com.comment
+                                          .toString(),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  )
+                                ],
+                              )),
+                          tileColor: const Color.fromARGB(192, 247, 225, 85)),
+                    )
+                ],
               ),
             ],
           ),
