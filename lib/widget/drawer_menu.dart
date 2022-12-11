@@ -5,6 +5,8 @@ import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/nav_provider.dart';
 
+import '../calorycalc/calorycalc.dart';
+
 class NutrackDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
 
@@ -76,7 +78,7 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(MyHomePage());
         break;
       case 1:
-        navigateTo(MyHomePage());
+        navigateTo(caloryAdd());
         break;
       case 2:
         navigateTo(MyHomePage());
