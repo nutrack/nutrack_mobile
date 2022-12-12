@@ -63,7 +63,7 @@ class _caloryAdd extends State<caloryAdd>{
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: NutrackUnAuthDrawer(),
+      drawer: NutrackDrawer(),
       appBar: AppBar(
         title: const Text("Submit"),
         backgroundColor: Colors.green,
