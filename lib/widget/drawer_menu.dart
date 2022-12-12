@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/article/article.dart';
 import 'package:nutrack_mobile/data/drawer_items.dart';
 import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
@@ -88,7 +89,7 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 3:
-        navigateTo(const MyHomePage());
+        navigateTo(const MyArticlePage());
         break;
       case 4:
         navigateTo(const MyHomePage());

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/article/article_unauth.dart';
 import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
-// import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
 import 'package:testimonies/screens/about_us.dart';
+import 'package:testimonies/screens/testimonies.dart';
 
 class NutrackUnAuthDrawer extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
@@ -84,10 +85,13 @@ class NutrackUnAuthDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 2:
-        navigateTo(const MyHomePage());
+        navigateTo(const MyUnauthArticlePage());
         break;
       case 3:
         navigateTo(const AboutUsPage());
+        break;
+      case 4:
+        navigateTo(const TestimonyPage());
         break;
     }
   }
