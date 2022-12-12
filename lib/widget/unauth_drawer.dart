@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/article/article_unauth.dart';
 import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
-import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
-import 'package:food_rec/screen/add_food.dart';
+import 'package:testimonies/screens/about_us.dart';
+import 'package:testimonies/screens/testimonies.dart';
 import 'package:food_rec/screen/food_rec.dart';
 
 class NutrackUnAuthDrawer extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
+  final padding = const EdgeInsets.symmetric(horizontal: 20);
 
-  NutrackUnAuthDrawer({super.key});
+  const NutrackUnAuthDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,8 @@ class NutrackUnAuthDrawer extends StatelessWidget {
     final provider = Provider.of<NetworkService>(context);
     final isCollapsed = provider.isCollapsed;
 
-    return Container(
+    return SizedBox(
+      //Replaced it with SizedBox, previously Container
       width: isCollapsed ? MediaQuery.of(context).size.width * 0.2 : null,
       child: Drawer(
         child: Container(
@@ -29,14 +31,14 @@ class NutrackUnAuthDrawer extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 24).add(safeArea),
+                padding: const EdgeInsets.symmetric(vertical: 24).add(safeArea),
                 width: double.infinity,
                 color: Colors.orange,
                 child: buildHeader(isCollapsed),
               ),
               const SizedBox(height: 24),
               buildList(items: itemsFirst, isCollapsed: isCollapsed),
-              Spacer(),
+              const Spacer(),
               buildCollapseIcon(context, isCollapsed),
               const SizedBox(height: 12),
             ],
@@ -56,7 +58,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
         shrinkWrap: true,
         primary: false,
         itemCount: items.length,
-        separatorBuilder: (context, index) => SizedBox(height: 16),
+        separatorBuilder: (context, index) => const SizedBox(height: 16),
         itemBuilder: (context, index) {
           final item = items[index];
 
@@ -70,7 +72,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
       );
 
   void selectItem(BuildContext context, int index) {
-    final navigateTo = (page) => Navigator.of(context).push(MaterialPageRoute(
+    navigateTo(page) => Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => page,
         ));
 
@@ -78,16 +80,19 @@ class NutrackUnAuthDrawer extends StatelessWidget {
 
     switch (index) {
       case 0:
-        navigateTo(MyHomePage());
+        navigateTo(const MyHomePage());
         break;
       case 1:
-        navigateTo(FoodRec());
+        navigateTo(const FoodRec());
         break;
       case 2:
-        navigateTo(MyHomePage());
+        navigateTo(const MyUnauthArticlePage());
         break;
       case 3:
-        navigateTo(MyHomePage());
+        navigateTo(const AboutUsPage());
+        break;
+      case 4:
+        navigateTo(const TestimonyPage());
         break;
     }
   }
@@ -98,7 +103,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    final color = Colors.black;
+    const color = Colors.black;
     final leading = Icon(icon, color: color);
 
     return Material(
@@ -110,17 +115,18 @@ class NutrackUnAuthDrawer extends StatelessWidget {
             )
           : ListTile(
               leading: leading,
-              title: Text(text, style: TextStyle(color: color, fontSize: 16)),
+              title: Text(text,
+                  style: const TextStyle(color: color, fontSize: 16)),
               onTap: onClicked,
             ),
     );
   }
 
   Widget buildCollapseIcon(BuildContext context, bool isCollapsed) {
-    final double size = 52;
+    const double size = 52;
     final icon = isCollapsed ? Icons.arrow_forward_ios : Icons.arrow_back_ios;
     final alignment = isCollapsed ? Alignment.center : Alignment.centerRight;
-    final margin = isCollapsed ? null : EdgeInsets.only(right: 16);
+    final margin = isCollapsed ? null : const EdgeInsets.only(right: 16);
     final width = isCollapsed ? double.infinity : size;
 
     return Container(
@@ -129,7 +135,8 @@ class NutrackUnAuthDrawer extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          child: Container(
+          child: SizedBox(
+            //Replaced it with SizedBox, previously Container
             width: width,
             height: size,
             child: Icon(icon, color: Colors.black),
@@ -152,7 +159,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
             const SizedBox(width: 24),
             Image.asset('assets/images/ic_launcher.png', height: 30),
             const SizedBox(width: 16),
-            Text(
+            const Text(
               'Nutrack',
               style: TextStyle(fontSize: 32, color: Colors.white),
             ),
