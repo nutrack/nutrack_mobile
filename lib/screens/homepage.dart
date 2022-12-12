@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
+import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/screens/slider.dart';
 
@@ -23,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: NutrackUnAuthDrawer(),
+        drawer: MyApp.loggedIn ? NutrackDrawer():NutrackUnAuthDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
           elevation: 0.0,

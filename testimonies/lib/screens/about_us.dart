@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
+import 'package:nutrack_mobile/widget/drawer_menu.dart';
+import 'package:nutrack_mobile/main.dart';
 
 
 class AboutUsPage extends StatelessWidget {
@@ -12,7 +14,7 @@ class AboutUsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('About Us'),
       ),
-      drawer: const NutrackUnAuthDrawer(),
+      drawer: MyApp.loggedIn ? const NutrackDrawer() : const NutrackUnAuthDrawer(),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: const [

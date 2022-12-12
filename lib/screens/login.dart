@@ -42,145 +42,146 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
       ),
       body: Form(
-          key: _loginFormKey,
-          child: SingleChildScrollView(
+        key: _loginFormKey,
+        child: SingleChildScrollView(
             child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Image.asset(
-                    'assets/images/ic_launcher.png',
-                    height: 75,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: const Text(
-                    "Login Form",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.person),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(90.0),
-                        borderSide: const BorderSide(
-                          color: Colors.green,
-                          width: 1.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(90.0),
-                        borderSide: const BorderSide(
-                          color: Colors.green,
-                          width: 1.0,
-                        ),
-                      ),
-                      labelText: 'Username',
+          children: [
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: Image.asset(
+                'assets/images/ic_launcher.png',
+                height: 75,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: const Text(
+                "Login Form",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.person),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(90.0),
+                    borderSide: const BorderSide(
+                      color: Colors.green,
+                      width: 1.0,
                     ),
-                    onChanged: (String? value) {
-                      setState(() {
-                        username = value!;
-                      });
-                    },
-                    onSaved: (String? value) {
-                      setState(() {
-                        username = value!;
-                      });
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Username can't be empty";
-                      }
-                      return null;
-                    },
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.password),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(90.0),
-                        borderSide: const BorderSide(
-                          color: Colors.green,
-                          width: 1.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(90.0),
-                        borderSide: const BorderSide(
-                          color: Colors.green,
-                          width: 1.0,
-                        ),
-                      ),
-                      labelText: 'Password',
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(90.0),
+                    borderSide: const BorderSide(
+                      color: Colors.green,
+                      width: 1.0,
                     ),
-                    onChanged: (String? value) {
-                      setState(() {
-                        password1 = value!;
-                      });
-                    },
-                    onSaved: (String? value) {
-                      setState(() {
-                        password1 = value!;
-                      });
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Password can't be empty";
-                      }
-                      return null;
-                    },
                   ),
+                  labelText: 'Username',
                 ),
-                Container(
-                    height: 80,
-                    padding: const EdgeInsets.all(20),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50),
-                        backgroundColor: Colors.green,
-                      ),
-                      child: const Text('Log In'),
-                      onPressed: () async {
-                        final response = await request
-                            .login("https://nu-track.up.railway.app/login-flutter/", {
-                          'username': username,
-                          'password': password1,
-                        });
-                        if (response['status']) {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("Successfully logged in!"),
-                          ));
+                onChanged: (String? value) {
+                  setState(() {
+                    username = value!;
+                  });
+                },
+                onSaved: (String? value) {
+                  setState(() {
+                    username = value!;
+                  });
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Username can't be empty";
+                  }
+                  return null;
+                },
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.password),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(90.0),
+                    borderSide: const BorderSide(
+                      color: Colors.green,
+                      width: 1.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(90.0),
+                    borderSide: const BorderSide(
+                      color: Colors.green,
+                      width: 1.0,
+                    ),
+                  ),
+                  labelText: 'Password',
+                ),
+                onChanged: (String? value) {
+                  setState(() {
+                    password1 = value!;
+                  });
+                },
+                onSaved: (String? value) {
+                  setState(() {
+                    password1 = value!;
+                  });
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Password can't be empty";
+                  }
+                  return null;
+                },
+              ),
+            ),
+            Container(
+                height: 80,
+                padding: const EdgeInsets.all(20),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(50),
+                    backgroundColor: Colors.green,
+                  ),
+                  child: const Text('Log In'),
+                  onPressed: () async {
+                    final response = await request.login(
+                        "https://nu-track.up.railway.app/login-flutter/", {
+                      'username': username,
+                      'password': password1,
+                    });
+                    if (response['status']) {
+                      MyApp.loggedIn = true;
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Successfully logged in!"),
+                      ));
 
-                          Navigator.pushReplacementNamed(context,
-                              MyHomePage.routeName);
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("An error occured, please try again."),
-                          ));
-                        }
-                      },
-                    )),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegisterPage.routeName);
+                      Navigator.pushReplacementNamed(
+                          context, MyHomePage.routeName);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("An error occured, please try again."),
+                      ));
+                    }
                   },
-                  child: Text(
-                    'Create New Account Here!',
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                ),
-              ],
-            )
-          ),
+                )),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RegisterPage.routeName);
+              },
+              child: Text(
+                'Create New Account Here!',
+                style: TextStyle(color: Colors.grey[600]),
+              ),
+            ),
+          ],
+        )),
       ),
     );
   }

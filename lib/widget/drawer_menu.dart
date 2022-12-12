@@ -99,7 +99,7 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(const TestimonyPage());
         break;
       case 6:
-        navigateTo(const TestimonyPage());
+        navigateTo(const TestimonyForm());
         break;
     }
   }
