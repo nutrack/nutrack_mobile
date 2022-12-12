@@ -5,7 +5,7 @@ import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 import 'package:provider/provider.dart';
-import 'package:nutrack_mobile/provider/net_service.dart';
+import 'package:nutrack_mobile/provider/net_service.dart';   
 import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:nutrack_mobile/screens/register.dart';
 
