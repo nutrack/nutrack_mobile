@@ -1,10 +1,11 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../model/article_model.dart';
+import 'package:nutrack_mobile/article/model/comment_model.dart';
 
-Future<List<ArticleItem>> fetchArticle() async {
+
+Future<List<CommentItem>> fetchComment() async {
   var url = Uri.parse(
-      'https://nu-track.up.railway.app/article/json-article/');
+      'https://nu-track.up.railway.app/article/json-comment/');
   var response = await http.get(
     url,
     headers: {
@@ -18,16 +19,15 @@ Future<List<ArticleItem>> fetchArticle() async {
   
   // melakukan konversi data json menjadi object ToDo
   
-  List<ArticleItem> listArticle = [];
+  List<CommentItem> listComment = [];
     for (var d in data) {
 
-      
       // print(d);
       if (d != null) {
-        listArticle.add(ArticleItem.fromJson(d));
+        listComment.add(CommentItem.fromJson(d));
       }
      
     }
   
-  return listArticle;
+  return listComment;
 }
