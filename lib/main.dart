@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_rec/screen/food_rec.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
@@ -32,12 +33,14 @@ class MyApp extends StatelessWidget {
           home: MyHomePage(),
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
-              case MyHomePage.ROUTE_NAME :
+              case MyHomePage.ROUTE_NAME:
                 return MaterialPageRoute(builder: (_) => const MyHomePage());
-              case LoginPage.ROUTE_NAME :
+              case LoginPage.ROUTE_NAME:
                 return MaterialPageRoute(builder: (_) => const LoginPage());
-              case RegisterPage.ROUTE_NAME :
+              case RegisterPage.ROUTE_NAME:
                 return MaterialPageRoute(builder: (_) => const RegisterPage());
+              case FoodRec.ROUTE_NAME:
+                return MaterialPageRoute(builder: (_) => const FoodRec());
               default:
                 return MaterialPageRoute(
                   builder: (_) {
@@ -52,5 +55,4 @@ class MyApp extends StatelessWidget {
           }),
     );
   }
-
 }

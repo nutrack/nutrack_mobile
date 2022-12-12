@@ -1,4 +1,5 @@
 import 'dart:convert' as convert;
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/screens/login.dart';
@@ -36,6 +37,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
   int carbs = 0;
   bool isFood = false;
   int rating = 0;
+  int user_id = 4;
 
   String statusMessage = "";
 
@@ -49,6 +51,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
         'carbs': carbs,
         'is_food': isFood,
         'rating': rating,
+        'user_id': user_id,
       },
     );
 
@@ -360,9 +363,14 @@ class _AddFoodPageState extends State<AddFoodPage> {
                               MaterialStateProperty.all(buttonColor),
                         ),
                         onPressed: () {
+                          // print json data
                           if (_formKey.currentState!.validate()) {
                             _initCreate(request);
-                            Navigator.pop(context);
+                            // setState for FoodRec to refresh the list
+                            setState(() {
+                              // set status message
+                              statusMessage = "Recommendation added";
+                            });
                           }
                         },
                       ),

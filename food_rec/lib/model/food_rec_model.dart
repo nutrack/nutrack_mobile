@@ -10,7 +10,7 @@ String foodRecModelToJson(List<FoodRecModel> data) =>
 
 class FoodRecModel {
   FoodRecModel({
-    required this.user,
+    this.user,
     required this.name,
     required this.calories,
     required this.protein,
@@ -20,7 +20,7 @@ class FoodRecModel {
     required this.rating,
   });
 
-  int user;
+  int? user;
   String name;
   int calories;
   int protein;
