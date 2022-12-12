@@ -25,6 +25,7 @@ class DashboardPage extends StatefulWidget {
 class _DashboardState extends State<DashboardPage> {
   final _formKey = GlobalKey<FormState>();
   int goal = 0;
+  
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
