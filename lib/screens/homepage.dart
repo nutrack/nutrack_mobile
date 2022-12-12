@@ -2,6 +2,7 @@ import 'package:nutrack_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
 import 'package:nutrack_mobile/screens/faq.dart';
+import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -25,7 +26,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         drawer: NutrackUnAuthDrawer(),
         appBar: AppBar(
-          backgroundColor: Colors.orange,
           elevation: 0.0,
           actions: [
             IconButton(
@@ -85,7 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     onLastPage
                     ? GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, LoginPage.routeName);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginPage()),
+                          );
                         },
                         child: Text(
                           "Login", 
