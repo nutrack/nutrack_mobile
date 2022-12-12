@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
@@ -34,7 +33,7 @@ class _caloryAdd extends State<caloryAdd>{
     });
 
     final response = await request.postJson(
-        'https://nu-track.up.railway.app/calorycalc/add_calory/', data);
+        'https://nu-track.up.railway.app/calorycalc/add_calory_flutter/', data);
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -54,11 +53,12 @@ class _caloryAdd extends State<caloryAdd>{
  Widget build(BuildContext context) {
     // The rest of your widgets are down below
     final request = context.watch<NetworkService>();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       drawer: NutrackUnAuthDrawer(),
       appBar: AppBar(
-        title: const Text("Calory Calc"),
+        title: const Text("Submit"),
         backgroundColor: Colors.green,
         centerTitle: true,
       ),
@@ -121,7 +121,7 @@ class _caloryAdd extends State<caloryAdd>{
                         backgroundColor: Colors.green,
                       ),
                       child: const Text('Submit'),
-                      onPressed: ()  {
+                      onPressed: () async {
                         if(_formKey.currentState!.validate()){
                           totalcalory+=calory;
                           addArticleToJson(request);
