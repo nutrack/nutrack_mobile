@@ -5,6 +5,9 @@ import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
+import 'package:testimonies/screens/about_us.dart';
+import 'package:testimonies/screens/create_testimonies.dart';
+import 'package:testimonies/screens/testimonies.dart';
 
 import '../screens/homepage.dart';
 
@@ -90,7 +93,13 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(const MyArticlePage());
         break;
       case 4:
-        navigateTo(const MyHomePage());
+        navigateTo(const AboutUsPage());
+        break;
+      case 5:
+        navigateTo(const TestimonyPage());
+        break;
+      case 6:
+        navigateTo(const TestimonyPage());
         break;
     }
   }
