@@ -42,7 +42,7 @@ class Fields {
         required this.articlePost,
     });
 
-    int user;
+    int? user;
     String author;
     DateTime date;
     String like;
