@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/article/article_unauth.dart';
-import 'package:nutrack_mobile/article/article.dart';
 import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
@@ -86,7 +85,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 2:
-        navigateTo(const MyArticlePage());
+        navigateTo(const MyUnauthArticlePage());
         break;
       case 3:
         navigateTo(const AboutUsPage());
