@@ -21,6 +21,10 @@ class _TestimonyPageState extends State<TestimonyPage> {
       body: FutureBuilder(
           future: fetchTestimony(),
           builder: (context, AsyncSnapshot snapshot) {
+<<<<<<< HEAD
+=======
+            print(snapshot);
+>>>>>>> 9d5bfb65071318953e2ec0b4bf7277b2b733e88f
             if (snapshot.data == null) {
               return const Center(child: CircularProgressIndicator());
             } else {
