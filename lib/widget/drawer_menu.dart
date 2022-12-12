@@ -24,8 +24,8 @@ class NutrackDrawer extends StatelessWidget {
     final provider = Provider.of<NetworkService>(context);
     final isCollapsed = provider.isCollapsed;
 
-    return SizedBox(
-      //Replaced it with SizedBox, previously Container
+
+    return SizedBox( //Replaced it with SizedBox, previously Container
       width: isCollapsed ? MediaQuery.of(context).size.width * 0.2 : null,
       child: Drawer(
         child: Container(
@@ -123,8 +123,7 @@ class NutrackDrawer extends StatelessWidget {
             )
           : ListTile(
               leading: leading,
-              title: Text(text,
-                  style: const TextStyle(color: color, fontSize: 16)),
+              title: Text(text, style: const TextStyle(color: color, fontSize: 16)),
               onTap: onClicked,
             ),
     );
@@ -143,8 +142,7 @@ class NutrackDrawer extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          child: SizedBox(
-            //Replaced it with SizedBox, previously Container
+          child: SizedBox( //Replaced it with SizedBox, previously Container
             width: width,
             height: size,
             child: Icon(icon, color: Colors.black),
