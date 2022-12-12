@@ -150,14 +150,42 @@ class _DashboardState extends State<DashboardPage> {
                       contentPadding: EdgeInsets.all(8),
                     ),
                     onChanged: (String? value) {
-                      setState(() {
-                        goal = int.parse(value!);
-                      });
+                      // setState(() {
+                      //   goal = int.parse(value!);
+                      // });
+                      if(value == null || value.isEmpty){
+
+                      }else{
+                        try {
+                          setState(() {
+                            goal = int.parse(value!);
+                          });
+                        }
+                        on FormatException {       
+                        }
+                        catch(error) {
+                              print(error);
+                        }
+                      }
                     },
                     onSaved: (String? value) {
-                      setState(() {
-                        goal = int.parse(value!);
-                      });
+                      // setState(() {
+                      //   goal = int.parse(value!);
+                      // });
+                      if(value == null || value.isEmpty){
+
+                      }else{
+                        try {
+                          setState(() {
+                            goal = int.parse(value!);
+                          });
+                        }
+                        on FormatException {       
+                        }
+                        catch(error) {
+                              print(error);
+                        }
+                      }
                     },
                   ),
                 ),
