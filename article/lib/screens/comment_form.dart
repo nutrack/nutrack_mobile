@@ -3,7 +3,7 @@ import 'article_detail.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'article_form.dart';
-import 'package:article/article.dart';
+import '../article.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
 

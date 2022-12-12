@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/calorycalc/fetch/calc_fetch.dart';
+import 'package:nutrack_mobile/calorycalc/history_page.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
@@ -127,10 +129,21 @@ class _caloryAdd extends State<caloryAdd>{
                           addArticleToJson(request);
                         }
                       },
-                    )),
+                    )
+                    ),
+                    TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const caloryHistory()));
+                  },
+                  child: Text(
+                    'Check your history',
+                    style: TextStyle(color: Colors.grey[600]),
+                  ),
+                ),
             ]
           )
-        )),
+        ),
+        ),
       );
  }
 }
