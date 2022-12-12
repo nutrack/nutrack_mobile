@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: NutrackDrawer(),
+        drawer: NutrackUnAuthDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
           elevation: 0.0,

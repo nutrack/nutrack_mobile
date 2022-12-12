@@ -50,11 +50,16 @@ class _caloryAdd extends State<caloryAdd>{
     }
   }
 
+  void totalcalories(request) async{
+    totalcalory=await totalData(request);
+  }
+
 
 
  Widget build(BuildContext context) {
     // The rest of your widgets are down below
     final request = context.watch<NetworkService>();
+    
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -70,10 +75,21 @@ class _caloryAdd extends State<caloryAdd>{
         child: SingleChildScrollView(
           child:Column(
             children:[
-              Container(
-                padding:const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child:Text(
-                  "Your total calory today are: $totalcalory",
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FutureBuilder(
+                  future:totalData(request),
+                  builder:(context, snapshot){
+                    if(snapshot.hasData){
+                      return Container(
+                  padding:const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                  child:Text(
+                    "Your total calory today are: ${snapshot.data} ",
+                    ),
+                );
+                    }
+                    return const Center(child: CircularProgressIndicator()); 
+                  }
                   ),
               ),
               Container(
@@ -127,13 +143,14 @@ class _caloryAdd extends State<caloryAdd>{
                         if(_formKey.currentState!.validate()){
                           totalcalory+=calory;
                           addArticleToJson(request);
+                          totalcalories(request);
                         }
                       },
                     )
                     ),
                     TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const caloryHistory()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const caloryHistory()));
                   },
                   child: Text(
                     'Check your history',

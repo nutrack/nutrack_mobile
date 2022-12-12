@@ -32,11 +32,15 @@ class _caloryHistory extends State<caloryHistory>{
  Widget build(BuildContext context) {
     // The rest of your widgets are down below
     final request = context.watch<NetworkService>();
+    int totalcalory=0;
+    void addtotal(int int){
+      totalcalory+=int;
+    }
 
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: NutrackUnAuthDrawer(),
+      //drawer: NutrackUnAuthDrawer(),
       appBar: AppBar(
         title: const Text("Submit"),
         backgroundColor: Colors.green,
@@ -49,6 +53,7 @@ class _caloryHistory extends State<caloryHistory>{
             return const Center(child: CircularProgressIndicator());
           } else {
             if (!snapshot.hasData) {
+              
               return Column(
                 children: const <Widget>[
                   Text(
@@ -62,6 +67,9 @@ class _caloryHistory extends State<caloryHistory>{
                 ],
               );
             } else {
+              for (int i = 0; i < snapshot.data!.length;i++) {
+                addtotal(snapshot.data![i].fields.calory);
+              }
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) => Container(
@@ -89,14 +97,18 @@ class _caloryHistory extends State<caloryHistory>{
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.calory.toString()}")
+                      Text("${snapshot.data![index].fields.calory.toString()}"),
+          
                     ],
                   ),
                 ),
+                
               );
             }
+            
           }
         },
+        
       ),
       );
  }

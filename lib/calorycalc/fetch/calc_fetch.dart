@@ -22,9 +22,35 @@ Future<List<CalcItem>> fetchCalc(NetworkService request) async {
       // print(d);
       if (d != null) {
         listCalc.add(CalcItem.fromJson(d));
+
       }
      
     }
   
   return listCalc;
+}
+
+Future<int> totalData(NetworkService request) async{
+  var response = await request.get(
+     'https://nu-track.up.railway.app/calorycalc/json_flutter/',
+  );
+  int totalcalory=0;
+  var data=response;
+   List<CalcItem> listCalc = [];
+  for (var d in data) {
+
+      
+      // print(d);
+      if (d != null) {
+       listCalc.add(CalcItem.fromJson(d));
+      }
+     
+    }
+    for(var d in listCalc){
+      totalcalory+=d.fields.calory;
+    }
+
+  
+  return totalcalory;
+
 }
