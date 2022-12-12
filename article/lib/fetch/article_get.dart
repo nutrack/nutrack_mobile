@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '/model/article_model.dart';
+import '../model/article_model.dart';
 
 Future<List<ArticleItem>> fetchArticle() async {
   var url = Uri.parse(

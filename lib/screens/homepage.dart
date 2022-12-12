@@ -11,7 +11,7 @@ import 'package:nutrack_mobile/screens/slider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/home';
+  static const routeName = '/home';
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -25,6 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         drawer: NutrackUnAuthDrawer(),
         appBar: AppBar(
+          backgroundColor: Colors.orange,
           elevation: 0.0,
           actions: [
             IconButton(
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onLastPage
                     ? GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, LoginPage.ROUTE_NAME);
+                          Navigator.pushNamed(context, LoginPage.routeName);
                         },
                         child: Text(
                           "Login", 
@@ -107,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     SmoothPageIndicator(controller: _controller, count: 3),
                     GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, FaqPage.ROUTE_NAME);
+                          Navigator.pushNamed(context, FaqPage.routeName);
                         },
                         child: Text(
                           "Help", 

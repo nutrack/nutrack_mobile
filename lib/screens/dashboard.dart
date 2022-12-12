@@ -7,7 +7,9 @@ import 'package:nutrack_mobile/screens/login.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/home';
+  static const routeName = '/home';
+
+
   @override
   State<DashboardPage> createState() => _DashboardState();
 }
@@ -22,7 +24,7 @@ class _DashboardState extends State<DashboardPage> {
           centerTitle: true,
           actions: [
             IconButton(
-              icon: Icon(Icons.login), 
+              icon: const Icon(Icons.login), 
               onPressed: () {
                 Navigator.push(
                   context,

@@ -1,5 +1,5 @@
 // import 'package:nutrack_mobile/main.dart';
-import 'package:article/article.dart';
+import '../article.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:convert' as convert;

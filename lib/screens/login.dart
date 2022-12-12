@@ -7,12 +7,11 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 import 'dart:convert';
 import 'package:nutrack_mobile/provider/net_service.dart';
-import 'package:nutrack_mobile/screens/register.dart';
 import 'package:nutrack_mobile/provider/auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/login';
+  static const routeName = '/login';
 
   @override
   State<StatefulWidget> createState() => _LoginPageState();
@@ -33,10 +32,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // The rest of your widgets are down below
     final request = context.watch<NetworkService>();
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: NutrackUnAuthDrawer(),
+      drawer: const NutrackUnAuthDrawer(),
       appBar: AppBar(
         title: const Text("Login"),
         backgroundColor: Colors.green,
@@ -56,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Text(
+                  child: const Text(
                     "Login Form",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
                 ),
@@ -64,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(90.0),
                         borderSide: const BorderSide(
@@ -105,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.password),
+                      prefixIcon: const Icon(Icons.password),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(90.0),
                         borderSide: const BorderSide(
@@ -162,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                           ));
 
                           Navigator.pushReplacementNamed(context,
-                              MyHomePage.ROUTE_NAME);
+                              MyHomePage.routeName);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                             content: Text("An error occured, please try again."),
@@ -172,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                     )),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RegisterPage.ROUTE_NAME);
+                    Navigator.pushNamed(context, RegisterPage.routeName);
                   },
                   child: Text(
                     'Create New Account Here!',

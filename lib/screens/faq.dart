@@ -7,7 +7,7 @@ import 'package:nutrack_mobile/screens/login.dart';
 
 class FaqPage extends StatefulWidget {
   const FaqPage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/home';
+  static const routeName = '/home';
   @override
   State<FaqPage> createState() => _FaqState();
 }
