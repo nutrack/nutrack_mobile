@@ -96,7 +96,10 @@ class _DashboardState extends State<DashboardPage> {
                 Expanded(
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const caloryAdd()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const caloryAdd()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
@@ -110,7 +113,10 @@ class _DashboardState extends State<DashboardPage> {
                 Expanded(
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const caloryHistory()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const caloryHistory()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
@@ -136,7 +142,7 @@ class _DashboardState extends State<DashboardPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextField(
+                  child: TextFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Set your today's goal",
@@ -148,7 +154,7 @@ class _DashboardState extends State<DashboardPage> {
                         goal = int.parse(value!);
                       });
                     },
-                    onSubmitted: (String? value) {
+                    onSaved: (String? value) {
                       setState(() {
                         goal = int.parse(value!);
                       });
@@ -157,21 +163,23 @@ class _DashboardState extends State<DashboardPage> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    final response = await request.postJson(
-                        "https://nu-track.herokuapp.com/add_goal/",
-                        convert.jsonEncode(<String, String>{
-                          'goal': goal.toString(),
-                        }));
-                    if (response['status'] == 'success') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Your goal has been set!"),
-                      ));
-                      Navigator.pushReplacementNamed(
-                          context, DashboardPage.routeName);
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("An error occured, please try again."),
-                      ));
+                    if (_formKey.currentState!.validate()) {
+                      final response = await request.postJson(
+                          "https://nu-track.herokuapp.com/add_goal/",
+                          convert.jsonEncode(<String, String>{
+                            'goal': goal.toString(),
+                          }));
+                      if (response['status'] == 'success') {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Your goal has been set!"),
+                        ));
+                        Navigator.pushReplacementNamed(
+                            context, DashboardPage.routeName);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("An error occured, please try again."),
+                        ));
+                      }
                     }
                   },
                   child: Text("Add"),
