@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
 import 'package:testimonies/screens/about_us.dart';
 import 'package:testimonies/screens/testimonies.dart';
+import 'package:food_rec/screen/food_rec.dart';
 
 class NutrackUnAuthDrawer extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
@@ -82,7 +83,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 1:
-        navigateTo(const MyHomePage());
+        navigateTo(const FoodRec());
         break;
       case 2:
         navigateTo(const MyUnauthArticlePage());
