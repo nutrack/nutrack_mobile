@@ -2,23 +2,23 @@ import 'package:nutrack_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
 import 'package:provider/provider.dart';
-import 'package:nutrack_mobile/widget/drawer_menu.dart';
+import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+class FaqPage extends StatefulWidget {
+  const FaqPage({Key? key}) : super(key: key);
   static const ROUTE_NAME = '/home';
   @override
-  State<DashboardPage> createState() => _DashboardState();
+  State<FaqPage> createState() => _FaqState();
 }
 
-class _DashboardState extends State<DashboardPage> {
+class _FaqState extends State<FaqPage> {
   @override
     Widget build(BuildContext context) => Scaffold(
-        drawer: NutrackDrawer(),
+        drawer: NutrackUnAuthDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Text(MyApp.title),
+          title: Text("FAQs"),
           centerTitle: true,
           actions: [
             IconButton(

@@ -13,10 +13,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  static const primaryColor = Color(0xFF151026);
   static final String title = 'Nutrack';
 
   @override
   Widget build(BuildContext context) {
+    var transparent;
     return Provider(
       create: (_) {
         NetworkService request = NetworkService();

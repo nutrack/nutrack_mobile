@@ -44,6 +44,8 @@ dependencies:
   flutter_speed_dial: ^6.2.0
   shared_preferences: ^2.0.15
   flutter_dotenv: ^5.0.2
+  cached_network_image: ^3.2.3
+  smooth_page_indicator: ^1.0.0
 
 flutter_icons:
   image_path: "android/app/src/main/res/mipmap-xxxhdpi/nutrack_logo.png"
@@ -73,6 +75,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/ic_launcher.png
+    - assets/images/using_calculator.png
+    - assets/images/read.jpg
+    - assets/images/cereal.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
