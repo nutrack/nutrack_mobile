@@ -7,4 +7,6 @@ final itemsFirst = [
   const NutrackDrawerItem(title: 'Food Recommendation', icon: Icons.restaurant),
   const NutrackDrawerItem(title: 'Articles', icon: Icons.article),
   const NutrackDrawerItem(title: 'About Us', icon: Icons.info),
+  const NutrackDrawerItem(title: 'Testimonies', icon: Icons.comment_outlined),
+  const NutrackDrawerItem(title: 'Create Testimony', icon: Icons.add_comment_outlined),
 ];
