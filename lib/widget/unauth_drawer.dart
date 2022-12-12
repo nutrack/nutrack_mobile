@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/article/article_unauth.dart';
+import 'package:nutrack_mobile/calorycalc/calorycalc.dart';
 import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
@@ -82,7 +83,7 @@ class NutrackUnAuthDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 1:
-        navigateTo(const MyHomePage());
+        navigateTo(const caloryAdd());
         break;
       case 2:
         navigateTo(const MyUnauthArticlePage());
