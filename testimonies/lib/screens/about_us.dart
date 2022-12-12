@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widget/unauth_drawer.dart';
+import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 
 
 class AboutUsPage extends StatelessWidget {
@@ -14,6 +14,7 @@ class AboutUsPage extends StatelessWidget {
       ),
       drawer: const NutrackUnAuthDrawer(),
       body: ListView(
+        padding: const EdgeInsets.all(20),
         children: const [
           Text(
             'Nutrack helps you to take care your nutrition needs',
