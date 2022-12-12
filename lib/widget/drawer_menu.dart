@@ -3,9 +3,13 @@ import 'package:nutrack_mobile/article/article.dart';
 import 'package:nutrack_mobile/data/drawer_items.dart';
 import 'package:nutrack_mobile/main.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
+import 'package:nutrack_mobile/screens/dashboard.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
-
+import 'package:testimonies/screens/about_us.dart';
+import 'package:testimonies/screens/create_testimonies.dart';
+import 'package:testimonies/screens/testimonies.dart';
+import 'package:food_rec/screen/food_rec.dart';
 import '../screens/homepage.dart';
 
 import '../calorycalc/calorycalc.dart';
@@ -22,6 +26,7 @@ class NutrackDrawer extends StatelessWidget {
 
     final provider = Provider.of<NetworkService>(context);
     final isCollapsed = provider.isCollapsed;
+
 
     return SizedBox( //Replaced it with SizedBox, previously Container
       width: isCollapsed ? MediaQuery.of(context).size.width * 0.2 : null,
@@ -80,19 +85,25 @@ class NutrackDrawer extends StatelessWidget {
 
     switch (index) {
       case 0:
-        navigateTo(const MyHomePage());
+        navigateTo(const DashboardPage());
         break;
       case 1:
         navigateTo(caloryAdd());
         break;
       case 2:
-        navigateTo(const MyHomePage());
+        navigateTo(const FoodRec());
         break;
       case 3:
         navigateTo(const MyArticlePage());
         break;
       case 4:
-        navigateTo(const MyHomePage());
+        navigateTo(const AboutUsPage());
+        break;
+      case 5:
+        navigateTo(const TestimonyPage());
+        break;
+      case 6:
+        navigateTo(const TestimonyPage());
         break;
     }
   }
