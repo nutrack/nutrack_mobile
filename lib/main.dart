@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/screens/dashboard.dart';
+import 'package:nutrack_mobile/screens/faq.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
@@ -8,15 +10,18 @@ import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:nutrack_mobile/screens/register.dart';
 
 void main() {
+  Provider.debugCheckInvalidValueType = null;
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  static const String title = 'Nutrack';
+  static const primaryColor = Color(0xFF151026);
+  static final String title = 'Nutrack';
 
   @override
   Widget build(BuildContext context) {
+    var transparent;
     return Provider(
       create: (_) {
         NetworkService request = NetworkService();
@@ -32,12 +37,16 @@ class MyApp extends StatelessWidget {
           home: const MyHomePage(),
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
-              case MyHomePage.routeName :
+              case MyHomePage.routeName:
                 return MaterialPageRoute(builder: (_) => const MyHomePage());
-              case LoginPage.routeName :
+              case LoginPage.routeName:
                 return MaterialPageRoute(builder: (_) => const LoginPage());
-              case RegisterPage.routeName :
+              case RegisterPage.routeName:
                 return MaterialPageRoute(builder: (_) => const RegisterPage());
+              case DashboardPage.routeName:
+                return MaterialPageRoute(builder: (_) => const DashboardPage());
+              case FaqPage.routeName:
+                return MaterialPageRoute(builder: (_) => const FaqPage());
               default:
                 return MaterialPageRoute(
                   builder: (_) {
@@ -52,5 +61,4 @@ class MyApp extends StatelessWidget {
           }),
     );
   }
-
 }

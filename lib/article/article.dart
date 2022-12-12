@@ -30,7 +30,7 @@ class _MyArticlePageState extends State<MyArticlePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Article'),
+        title: const Text('Latest Article'),
       ),
       drawer: const NutrackDrawer(),
       body: FutureBuilder(

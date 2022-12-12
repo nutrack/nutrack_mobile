@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/article/article_unauth.dart';
+import 'package:nutrack_mobile/article/article.dart';
 import 'package:nutrack_mobile/data/drawer_items_unauth.dart';
 import 'package:nutrack_mobile/model/model_drawer.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
+import 'package:testimonies/screens/about_us.dart';
+import 'package:testimonies/screens/testimonies.dart';
 
 class NutrackUnAuthDrawer extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
@@ -19,7 +22,8 @@ class NutrackUnAuthDrawer extends StatelessWidget {
     final provider = Provider.of<NetworkService>(context);
     final isCollapsed = provider.isCollapsed;
 
-    return SizedBox( //Replaced it with SizedBox, previously Container
+    return SizedBox(
+      //Replaced it with SizedBox, previously Container
       width: isCollapsed ? MediaQuery.of(context).size.width * 0.2 : null,
       child: Drawer(
         child: Container(
@@ -82,10 +86,13 @@ class NutrackUnAuthDrawer extends StatelessWidget {
         navigateTo(const MyHomePage());
         break;
       case 2:
-        navigateTo(const MyUnauthArticlePage());
+        navigateTo(const MyArticlePage());
         break;
       case 3:
-        navigateTo(const MyHomePage());
+        navigateTo(const AboutUsPage());
+        break;
+      case 4:
+        navigateTo(const TestimonyPage());
         break;
     }
   }
@@ -108,7 +115,8 @@ class NutrackUnAuthDrawer extends StatelessWidget {
             )
           : ListTile(
               leading: leading,
-              title: Text(text, style: const TextStyle(color: color, fontSize: 16)),
+              title: Text(text,
+                  style: const TextStyle(color: color, fontSize: 16)),
               onTap: onClicked,
             ),
     );
@@ -127,7 +135,8 @@ class NutrackUnAuthDrawer extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          child: SizedBox( //Replaced it with SizedBox, previously Container
+          child: SizedBox(
+            //Replaced it with SizedBox, previously Container
             width: width,
             height: size,
             child: Icon(icon, color: Colors.black),

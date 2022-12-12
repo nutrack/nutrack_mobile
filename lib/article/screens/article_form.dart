@@ -1,6 +1,7 @@
 import 'package:nutrack_mobile/article/article.dart';
 
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/provider/net_service.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
 
 import 'dart:convert' as convert;
@@ -25,29 +26,35 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
   String? judul;
   String? penulis;
   String? artikel;
-  String? date;
-  String? like;
 
   void addArticleToJson(request) async {
-    var data = convert.jsonEncode(<String, dynamic>{
-      'author': penulis,
-      'date': DateTime.now(),
-      'like': 0,
-      'title': judul,
-      'article_post': artikel
+    DateTime date = DateTime.now();
+    var data = convert.jsonEncode(<String, String>{
+      'author': penulis!,
+      'date': "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
+      'like': "0",
+      'title': judul!,
+      'article_post': artikel!
     });
 
-    final response = await request.postJson(
-        'https://nu-track.up.railway.app/article/add-flutter/', data);
+    final response = await request
+        .postJson("https://nu-track.up.railway.app/article/add-flutter/", data
+        // {
+        //   'author': penulis,
+        //   'date': "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
+        //   'like': "0",
+        //   'title': judul,
+        //   'article_post': artikel
+        // }
+    );
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Article has been added!"),
       ));
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MyArticlePage()));
-    } 
-    
-    else {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => const MyArticlePage()));
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("An error occured, please try again."),
       ));
@@ -56,7 +63,7 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    final request = context.watch<CookieRequest>(); // TODO ini belom diurus
+    final request = context.watch<NetworkService>();
 
     return Scaffold(
       appBar: AppBar(
@@ -229,7 +236,6 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
               ]),
             ),
           )),
-
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
@@ -246,13 +252,13 @@ class _MyArticleFormPageState extends State<MyArticleFormPage> {
             ),
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                article.add(ArticleData(judul.toString(), penulis.toString(),
-                    artikel.toString(), []));
+                // article.add(ArticleData(judul.toString(), penulis.toString(),
+                //     artikel.toString(), []));
                 addArticleToJson(request);
               }
 
-              // Navigator.of(context).push(MaterialPageRoute(
-              //     builder: (context) => const MyArticlePage()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MyArticlePage()));
             },
           ),
         ),

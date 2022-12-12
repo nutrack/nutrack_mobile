@@ -186,7 +186,7 @@ class _CommentFormPageState extends State<CommentFormPage> {
               Row(
                 children: const [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    padding: EdgeInsets.fromLTRB(0, 15, 0, 10),
                     child: Text(
                       'COMMENTS',
                       style: TextStyle(
