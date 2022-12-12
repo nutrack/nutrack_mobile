@@ -1,6 +1,7 @@
 import 'package:nutrack_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/provider/net_service.dart';
+import 'package:nutrack_mobile/screens/faq.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
@@ -87,6 +88,9 @@ class _DashboardState extends State<DashboardPage> {
                       ),
                       SizedBox(
                         height: 10,
+                      ),
+                      Expanded(
+                        child: Text(""),
                       ),
                       // FutureBuilder buat get data
                       // FutureBuilder(

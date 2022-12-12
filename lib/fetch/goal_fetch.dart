@@ -4,7 +4,7 @@ import '../model/calc_goal.dart';
 
 Future<List<NutrackGoal>> fetchGoal() async {
   var url = Uri.parse(
-      'https://nu-track.up.railway.app/add_goal/');
+      'https://nu-track.up.railway.app/goal-json/');
   var response = await http.get(
     url,
     headers: {
