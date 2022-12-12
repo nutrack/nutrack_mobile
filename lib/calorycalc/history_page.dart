@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrack_mobile/calorycalc/fetch/calc_fetch.dart';
+import 'package:nutrack_mobile/calorycalc/model/calc_model.dart';
 import 'package:nutrack_mobile/screens/login.dart';
 import 'package:nutrack_mobile/widget/drawer_menu.dart';
 import 'package:nutrack_mobile/widget/unauth_drawer.dart';
@@ -25,10 +26,13 @@ class caloryHistory extends StatefulWidget{
 
 class _caloryHistory extends State<caloryHistory>{
   final _formKey = GlobalKey<FormState>();
+  late Future<List<CalcItem>> eventer;
+
 
  Widget build(BuildContext context) {
     // The rest of your widgets are down below
     final request = context.watch<NetworkService>();
+
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -39,7 +43,7 @@ class _caloryHistory extends State<caloryHistory>{
         centerTitle: true,
       ),
       body:FutureBuilder(
-        future: fetchCalc(),
+        future: fetchCalc(request),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
@@ -78,14 +82,14 @@ class _caloryHistory extends State<caloryHistory>{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        snapshot.data![index].date.toString(),
+                        snapshot.data![index].fields.date.toString(),
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Text("${snapshot.data![index].calory.toString()}")
+                      Text("${snapshot.data![index].fields.calory.toString()}")
                     ],
                   ),
                 ),

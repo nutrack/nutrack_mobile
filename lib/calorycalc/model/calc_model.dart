@@ -10,27 +10,47 @@ String calcItemToJson(List<CalcItem> data) => json.encode(List<dynamic>.from(dat
 
 class CalcItem {
     CalcItem({
-        required this.id,
-        required this.userId,
+        required this.model,
+        required this.pk,
+        required this.fields,
+    });
+
+    String model;
+    int pk;
+    Fields fields;
+
+    factory CalcItem.fromJson(Map<String, dynamic> json) => CalcItem(
+        model: json["model"],
+        pk: json["pk"],
+        fields: Fields.fromJson(json["fields"]),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "model": model,
+        "pk": pk,
+        "fields": fields.toJson(),
+    };
+}
+
+class Fields {
+    Fields({
+        required this.user,
         required this.date,
         required this.calory,
     });
 
-    int id;
-    int userId;
+    int user;
     DateTime date;
     int calory;
 
-    factory CalcItem.fromJson(Map<String, dynamic> json) => CalcItem(
-        id: json["id"],
-        userId: json["user_id"],
+    factory Fields.fromJson(Map<String, dynamic> json) => Fields(
+        user: json["user"],
         date: DateTime.parse(json["date"]),
         calory: json["calory"],
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "user_id": userId,
+        "user": user,
         "date": date.toIso8601String(),
         "calory": calory,
     };
