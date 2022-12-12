@@ -9,7 +9,7 @@ import 'package:nutrack_mobile/provider/net_service.dart';
 import 'package:testimonies/screens/about_us.dart';
 import 'package:testimonies/screens/create_testimonies.dart';
 import 'package:testimonies/screens/testimonies.dart';
-
+import 'package:food_rec/screen/food_rec.dart';
 import '../screens/homepage.dart';
 
 import '../calorycalc/calorycalc.dart';
@@ -26,6 +26,7 @@ class NutrackDrawer extends StatelessWidget {
 
     final provider = Provider.of<NetworkService>(context);
     final isCollapsed = provider.isCollapsed;
+
 
     return SizedBox( //Replaced it with SizedBox, previously Container
       width: isCollapsed ? MediaQuery.of(context).size.width * 0.2 : null,
@@ -90,7 +91,7 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(caloryAdd());
         break;
       case 2:
-        navigateTo(const MyHomePage());
+        navigateTo(const FoodRec());
         break;
       case 3:
         navigateTo(const MyArticlePage());
