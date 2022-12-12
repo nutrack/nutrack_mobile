@@ -25,7 +25,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         drawer: NutrackUnAuthDrawer(),
         appBar: AppBar(
-          backgroundColor: Colors.orange,
           elevation: 0.0,
           actions: [
             IconButton(
@@ -85,7 +84,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     onLastPage
                     ? GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, LoginPage.routeName);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginPage()),
+                          );
                         },
                         child: Text(
                           "Login", 

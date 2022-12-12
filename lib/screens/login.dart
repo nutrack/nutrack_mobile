@@ -1,5 +1,6 @@
 import 'package:nutrack_mobile/main.dart';
 import 'package:flutter/material.dart';
+import 'package:nutrack_mobile/screens/dashboard.dart';
 import 'package:nutrack_mobile/screens/homepage.dart';
 import 'package:nutrack_mobile/screens/register.dart';
 import 'package:provider/provider.dart';
@@ -161,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                           ));
 
                           Navigator.pushReplacementNamed(context,
-                              MyHomePage.routeName);
+                              DashboardPage.routeName);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                             content: Text("An error occured, please try again."),
