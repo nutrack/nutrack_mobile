@@ -1,17 +1,10 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-<<<<<<<< HEAD:lib/fetch/goal_fetch.dart
 import '../model/calc_goal.dart';
 
 Future<List<NutrackGoal>> fetchGoal() async {
-  var url = Uri.parse(
-      'https://nu-track.up.railway.app/goal-json/');
-========
-import 'package:nutrack_mobile/article/model/article_model.dart';
+  var url = Uri.parse('https://nu-track.up.railway.app/goal-json/');
 
-Future<List<ArticleItem>> fetchArticle() async {
-  var url = Uri.parse('https://nu-track.up.railway.app/article/json-article/');
->>>>>>>> 9d5bfb65071318953e2ec0b4bf7277b2b733e88f:lib/article/fetch/article_get.dart
   var response = await http.get(
     url,
     headers: {
@@ -22,34 +15,16 @@ Future<List<ArticleItem>> fetchArticle() async {
 
   // melakukan decode response menjadi bentuk json
   var data = jsonDecode(utf8.decode(response.bodyBytes));
-<<<<<<<< HEAD:lib/fetch/goal_fetch.dart
-  
+
   // melakukan konversi data json menjadi object ToDo
-  
+
   List<NutrackGoal> listGoal = [];
-    for (var d in data) {
-
-      
-      // print(d);
-      if (d != null) {
-        listGoal.add(NutrackGoal.fromJson(d));
-      }
-     
-    }
-  
-  return listGoal;
-========
-
-  // melakukan konversi data json menjadi object ToDo
-
-  List<ArticleItem> listArticle = [];
   for (var d in data) {
     // print(d);
     if (d != null) {
-      listArticle.add(ArticleItem.fromJson(d));
+      listGoal.add(NutrackGoal.fromJson(d));
     }
   }
 
-  return listArticle;
->>>>>>>> 9d5bfb65071318953e2ec0b4bf7277b2b733e88f:lib/article/fetch/article_get.dart
+  return listGoal;
 }
