@@ -16,6 +16,7 @@ import 'package:food_rec/util/fetch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:food_rec/screen/food_detail.dart';
 import 'package:food_rec/screen/add_food.dart';
+import 'package:nutrack_mobile/widget/unauth_drawer.dart';
 
 class FoodRec extends StatefulWidget {
   static const ROUTE_NAME = "/food_rec";
@@ -39,25 +40,29 @@ class _FoodRecState extends State<FoodRec> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: NutrackDrawer(),
+        drawer: CookieRequest().loggedIn == true
+            ? NutrackDrawer()
+            : NutrackUnAuthDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
           title: Text("Food Recommendation"),
           centerTitle: true,
         ),
         // add dropdown button for sorting
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // Add your onPressed code here!
-            // go to add food page
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AddFoodPage()),
-            );
-          },
-          child: const Icon(Icons.add),
-          backgroundColor: iconColor,
-        ),
+        floatingActionButton: CookieRequest().loggedIn == true
+            ? FloatingActionButton(
+                onPressed: () {
+                  // Add your onPressed code here!
+                  // go to add food page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddFoodPage()),
+                  );
+                },
+                child: const Icon(Icons.add),
+                backgroundColor: iconColor,
+              )
+            : null,
         // extendBodyBehindAppBar: true,
         // add dropdown button for sorting
 

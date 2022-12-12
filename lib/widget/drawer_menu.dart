@@ -82,7 +82,7 @@ class NutrackDrawer extends StatelessWidget {
         navigateTo(MyHomePage());
         break;
       case 2:
-        navigateTo(MyHomePage());
+        navigateTo(FoodRec());
         break;
       case 3:
         navigateTo(MyHomePage());

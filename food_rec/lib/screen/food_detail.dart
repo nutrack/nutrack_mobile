@@ -20,7 +20,6 @@ class FoodRecDetail extends StatelessWidget {
           title: const Text('Food Details'),
           backgroundColor: Colors.orange,
         ),
-        drawer: NutrackDrawer(),
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: Column(children: [
