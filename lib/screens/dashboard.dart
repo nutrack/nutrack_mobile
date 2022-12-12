@@ -25,6 +25,7 @@ class DashboardPage extends StatefulWidget {
 class _DashboardState extends State<DashboardPage> {
   final _formKey = GlobalKey<FormState>();
   int goal = 0;
+  
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -96,7 +97,10 @@ class _DashboardState extends State<DashboardPage> {
                 Expanded(
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const caloryAdd()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const caloryAdd()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
@@ -110,7 +114,10 @@ class _DashboardState extends State<DashboardPage> {
                 Expanded(
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const caloryHistory()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const caloryHistory()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
@@ -136,7 +143,7 @@ class _DashboardState extends State<DashboardPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextField(
+                  child: TextFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Set your today's goal",
@@ -144,34 +151,64 @@ class _DashboardState extends State<DashboardPage> {
                       contentPadding: EdgeInsets.all(8),
                     ),
                     onChanged: (String? value) {
-                      setState(() {
-                        goal = int.parse(value!);
-                      });
+                      // setState(() {
+                      //   goal = int.parse(value!);
+                      // });
+                      if(value == null || value.isEmpty){
+
+                      }else{
+                        try {
+                          setState(() {
+                            goal = int.parse(value!);
+                          });
+                        }
+                        on FormatException {       
+                        }
+                        catch(error) {
+                              print(error);
+                        }
+                      }
                     },
-                    onSubmitted: (String? value) {
-                      setState(() {
-                        goal = int.parse(value!);
-                      });
+                    onSaved: (String? value) {
+                      // setState(() {
+                      //   goal = int.parse(value!);
+                      // });
+                      if(value == null || value.isEmpty){
+
+                      }else{
+                        try {
+                          setState(() {
+                            goal = int.parse(value!);
+                          });
+                        }
+                        on FormatException {       
+                        }
+                        catch(error) {
+                              print(error);
+                        }
+                      }
                     },
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    final response = await request.postJson(
-                        "https://nu-track.herokuapp.com/add_goal/",
-                        convert.jsonEncode(<String, String>{
-                          'goal': goal.toString(),
-                        }));
-                    if (response['status'] == 'success') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Your goal has been set!"),
-                      ));
-                      Navigator.pushReplacementNamed(
-                          context, DashboardPage.routeName);
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("An error occured, please try again."),
-                      ));
+                    if (_formKey.currentState!.validate()) {
+                      final response = await request.postJson(
+                          "https://nu-track.herokuapp.com/add_goal/",
+                          convert.jsonEncode(<String, String>{
+                            'goal': goal.toString(),
+                          }));
+                      if (response['status'] == 'success') {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Your goal has been set!"),
+                        ));
+                        Navigator.pushReplacementNamed(
+                            context, DashboardPage.routeName);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("An error occured, please try again."),
+                        ));
+                      }
                     }
                   },
                   child: Text("Add"),
@@ -182,8 +219,8 @@ class _DashboardState extends State<DashboardPage> {
           Expanded(
             child: GridView.count(
               crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
               children: <Widget>[
                 Card(
                   elevation: 4,
