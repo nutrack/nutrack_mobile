@@ -22,6 +22,54 @@ Tidak jarang kita mengalami rasa bosan dalam menikmati suatu hidangan. Terkadang
 
 Mengingat rangkaian acara KTT G20 yang panjang dan padat, setiap partisipan perlu menjaga kondisi tubuh mereka untuk bisa mengikuti setiap rangkaian acaranya. KTT G20 mengundang beberapa negara lain yang mungkin masih kurang familiar dengan gaya jenis makanan yang bahan pangannya tersedia di Indonesia. Dengan adanya aplikasi ini, diharapkan dapat membantu partisipan dalam menjaga kesehatan tubuh mereka, serta membantu partisipan dalam menentukan menu yang dapat memenuhi gizi mereka yang tersedia di Indonesia.
 
+Proyek Akhir Semester ini merupakan kelanjutan dari Proyek Tengah Semester, yaitu membuat aplikasi web. Dan untuk proyek kali ini, kami membuat aplikasi mobile melalui flutter.
+
+## 🖱️ Implementasi Listener & Event Handler 🖱️
+**1. Authentication and Landing Page Module - Sasha Nabila Fortuna**
+
+a. onTap() :
+- Pada bagian Drawer, terdapat anak panah kecil yang jika ditap, maka drawer bisa diperbesar dan/atau diperkecil
+- Di bagian landing page untuk pengguna yang sudah login, terdapat empat fitur utama dari Nutrack dan jika setiap box ditekan, maka akan ter-redirect ke halaman yang dituju (belum diimplementasi, tapi bisa menggunakan rawer untuk navigasi ke beda halaman)
+- Pada landing page bag pengguna yang belum terautentikasi, jika pergeseran slide sudah berada di slide terakhir (article), maka akan muncul tombol login. Dan jika textbutton login ditekan, maka pengguna akan langsung diarahkan untuk login. Dan ada textbutton skip, jika tombol ini ditekan, maka pengguna bisa loncat dari halaman berapa saja ke halaman terakhir (article)
+- Textbutton "Help" di landing page bagi pengguna yang belum login, jika "help" ditekan, maka pengguna akan diarahkan ke halaman FAQ.
+
+b. onPressed :
+- Pada landing page bagi pengguna yang sudah terautentikasi, di bagian AppBar terdapat tombol logout yang jika ditekan, maka user akan logout dan redirect ke landing page bagi pengguna yang belum terautentikasi
+- Pada tombol "Add Calory" di bagian landing page untuk pengguna yang sudah login, jika tombol ditekan, maka pengguna akan diarahkan ke halaman "Add Calory"
+- Pada tombol "See Your Calories' History" di bagian landing page untuk pengguna yang sudah login, jika tombol ditekan, maka pengguna akan diarahkan ke halaman histori kalori pengguna
+- Pada tombol "Add" di bagian landing page untuk pengguna yang sudah login, jika tombol ditekan, maka target kalori harian pengguna yang ingin ditambahkan langsung tampil di landing page tersebut
+
+c. onChanged :
+- Inputan target kalori harian akan dilihat apa ada isinya atau tidak dan jika ada isinya, maka ada perubahan angka target yang ada pada landing page
+
+d. onSaved :
+- Inputan target kalori harian akan dilihat apa ada isinya atau tidak dan jika ada isinya, maka ada perubahan angka target yang ada pada landing page dan menyimpannya
+
+e. onPageChanged :
+- Event handler ini adalah bawaan dari package `smooth_page_indicator` dan event ini bertujuan untuk handling pergeseran halaman
+
+**2. CaloryCalc Module - Reiou Nagata**
+
+- CaloryCalc Page: ElevatedButton dengan onpressed biar menambahkan calory, dan TextButton dengan onpressed untuk pergi ke halaman HistoryPage
+
+**3. Food Recommendation Module - M. Akmal Hakim**
+
+- Food Recs List Page: FilterChip beserta onSelected untuk re-fetch data sesuai filter yang dipilih, ElevatedButton beserta onPressed untuk pindah ke page detail makanan, serta FloatingActionButton dan onPressed untuk menambahkan rekomendasi baru (untuk Authenticated User)
+- Food Detail Page: ElevatedButton dengan onPressed untuk kembali ke laman Food Recs List
+- Add New Recommendation Page: ElevatedButton dengan onPressed untuk menambah rekomendasi baru, IconButton dengan onPressed untuk kembali ke halaman Food Recs List
+
+**4. Article Module - Shayna Putri Fitria**
+
+- Article Grid Page; ListTile dengan onpressed untuk menampilkan detail article yang telah ditulis sebelumnya, serta Floating Button dengan onpressed untuk membuat artikel baru (hanya untuk user logged in)
+- Article Detail Page; Button dengan onpressed untuk menambahkan comment (hanya untuk user logged in)
+- Write Article Page; Button dengan onpressed untuk submit article
+- Write Comment Page; Button dengan onpressed untuk submit comment
+
+**5. About Us and Testimony Module - Farkhan Syawal Harahap**
+
+- Create Testimonies Page (unimplemented)
+- TextButton yang jika ditekan akan membuat testimoni baru (menggunakan onPressed)
+
 ## 🌍 Alur Pengintegrasian dengan Web Services 🌍
 Langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan server web.
 
@@ -60,6 +108,8 @@ Langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan serve
 - Membuat artikel tentang pola makan sehat
 - Memberikan rekomendasi dengan me-rating makanan atau minuman yang sudah pernah dikonsumsi
 - Membuat testimoni pengguna Nutrack 
+
+
 
 ## 💡 Referensi
 1. [Pola Konsumsi Bisnis Setelah Pandemi Covid-19](https://www.ukmindonesia.id/baca-deskripsi-posts/pola-konsumsi-bisnis-setelah-pandemi-covid19)
